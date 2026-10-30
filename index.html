@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Models Course</title>
+<meta name="description" content="An interactive course on world models, from first principles to applications in pregnancy, with animated explainers and simulations.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap">
+<script>
+  /* apply the saved theme before first paint */
+  (function () {
+    try {
+      var t = JSON.parse(localStorage.getItem('wm:theme') || '"system"');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { /* storage unavailable: follow the system */ }
+  })();
+</script>
+<link rel="stylesheet" href="core.css">
+</head>
+<body>
+<div id="wm-app">
+  <noscript><p style="padding:24px;max-width:60ch">This course is interactive and needs JavaScript to run. Please enable it and reload the page.</p></noscript>
+</div>
+<script src="core.js"></script>
+<script>
+  WM.boot({
+    title: 'World Models, from first principles to pregnancy',
+    short: 'World Models',
+    subtitle: 'from first principles to pregnancy',
+    docTitle: 'World Models Course',
+    intro: 'A world model is an internal simulation of how things change, which a brain or a machine can use to predict what happens next and to try out actions before taking them. This programme builds the idea from everyday intuition, through the mathematics of learning such models from data, to the research systems of 2026. The final module asks where world models could help in pregnancy care, and where they could mislead.',
+    dataNote: 'All pregnancy examples use synthetic data generated for teaching. No real patient or study participant data appear anywhere in this course.',
+    modules: [
+      { id: 'm1', num: 1, file: 'm1.js', minutes: 25, level: 'Foundations', title: 'What is a world model?',
+        desc: 'The intuition: why brains, robots and clinicians all carry a simulation of the world and use it to look ahead.' },
+      { id: 'm2', num: 2, file: 'm2.js', minutes: 25, level: 'Foundations', title: 'States, actions and imagining ahead',
+        desc: 'Describing a situation as a state that changes under actions, and rolling a model forward to plan.' },
+      { id: 'm3', num: 3, file: 'm3.js', minutes: 35, level: 'Core', title: 'Learning a model from data',
+        desc: 'Fitting the rules of change from observations, measuring prediction error, and handling uncertainty.' },
+      { id: 'm4', num: 4, file: 'm4.js', minutes: 35, level: 'Core', title: 'Latent worlds and dreaming',
+        desc: 'Compressing what is observed into a hidden state, then learning and planning inside the imagined world.' },
+      { id: 'm5', num: 5, file: 'm5.js', minutes: 35, level: 'Advanced', title: 'State of the art, 2026',
+        desc: 'Where research systems stand: video world models, model-based agents, and the problems still open.' },
+      { id: 'm6', num: 6, file: 'm6.js', minutes: 40, level: 'Applied', title: 'World models for pregnancy',
+        desc: 'Pregnancy as a changing state: forecasting, what-if questions and their limits, shown on synthetic data.' }
+    ]
+  });
+</script>
+</body>
+</html>
